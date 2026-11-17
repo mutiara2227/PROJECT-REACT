@@ -53,7 +53,7 @@ function Calendar({ tasks }) {
         subtitle="Lihat jadwal dan deadline tugasmu"
       />
 
-      <section className="content-section">
+      <section className="content-section calendar-section">
         <div className="calendar-header">
           <h3>{monthName}</h3>
 
@@ -83,8 +83,20 @@ function Calendar({ tasks }) {
             const day = index + 1;
             const dayTasks = getTasks(day);
 
+            const today = new Date();
+
+            const isToday =
+              day === today.getDate() &&
+              month === today.getMonth() &&
+              year === today.getFullYear();
+
             return (
-              <div className="calendar-date" key={day}>
+              <div
+                className={`calendar-date ${
+                  dayTasks.length > 0 ? 'has-task' : ''
+                } ${isToday ? 'today' : ''}`}
+                key={day}
+              >
                 <span>{day}</span>
 
                 {dayTasks.map(task => (

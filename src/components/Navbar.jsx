@@ -7,13 +7,6 @@ function Navbar({ title, subtitle }) {
         <h1 className="page-title">{title}</h1>
         <p className="page-subtitle">{subtitle}</p>
       </div>
-
-      <div className="user-profile">
-        <div className="user-icon">
-          <UserRound size={20} />
-        </div>
-        <span>Student</span>
-      </div>
     </header>
   );
 }
